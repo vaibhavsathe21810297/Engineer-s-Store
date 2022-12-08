@@ -1,0 +1,183 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock title %} {% block banner_slider %}
+<!--Banner Slider-->
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/banner/new/banner1.jpg' %}" class="d-block w-100" alt="..." style="height:700px">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/new/banner2.png' %}" class="d-block w-100" alt="..." style="height:700px">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/new/banner3.jpg' %}" class="d-block w-100" alt="..." style="height:700px">
+        </div>
+<!--         <div class="carousel-item">-->
+<!--            <img src="{% static 'app/images/banner/new/banner4.jpg' %}" class="d-block w-100" alt="..." style="height:700px">-->
+<!--        </div>-->
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+<br>
+<!-- End Banner Slider -->
+{% endblock banner_slider %} {% block livesale %}
+<!-- Live Sale Section -->
+<div class="container">
+    <div class="row bg-dark text-center p-5 text-white border-bottom shadow">
+        <h1>BLACK FRIDAY SALE </h1>
+        <span>Searching for deals; Gotta catch 'em all!</span>
+        <small class="fw-lighter">Black Friday… Still Friday, just better.</small>
+    </div>
+</div>
+
+<!-- End Live Sale Section -->
+{% endblock livesale %} {% block main-content %}
+
+<!-- 6th Product Slider -->
+<div class="m-3">
+    <h1 class="text-center fw-bold">TRENDING NOW</h1>
+    <h2>Deals On Cricket</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+    {%for cr in cricket%}
+    <a href="{% url 'product-detail' cr.id %}" class="btn"><div class="item"><img src="{{cr.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{cr.description}}</span><br><span class="fs-5">Rs. {{cr.discounted_price}}</span></div></a>
+     {%endfor%}
+
+ </div>
+</div>
+
+<!-- End 6th Product Slider -->
+
+<!-- 1st Product Slider -->
+<div class="m-3">
+    <h1 class="text-center fw-bold">IN DEMAND NOW</h1>
+    <h2>Deals On Badminton</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider2">
+    {%for ba in badminton%}
+    <a href="{% url 'product-detail' ba.id %}" class="btn"><div class="item"><img src="{{ba.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{ba.description}}</span><br><span class="fs-5">Rs. {{ba.discounted_price}}</span></div></a>
+     {%endfor%}
+
+ </div>
+</div>
+
+<!-- End 1st Product Slider -->
+
+
+<!-- 2nd Product Slider -->
+<div class="m-3">
+    <h2>Deals On Football</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider3">
+    {%for fo in football%}
+    <a href="{% url 'product-detail' fo.id %}" class="btn"><div class="item"><img src="{{fo.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{fo.description}}</span><br><span class="fs-5">Rs. {{fo.discounted_price}}</span></div></a>
+     {%endfor%}
+
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+<div class="m-3">
+    <h2>Deals On Cycling</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider3">
+    {%for cy in cycling%}
+    <a href="{% url 'product-detail' cy.id %}" class="btn">
+<div class="item"><img src="{{cy.product_image.url}}" alt="" height="200px">
+<span class="fw-bold">{{cy.description}}</span><br>
+<span class="fs-5">Rs. {{cy.discounted_price}}</span></div></a>
+     {%endfor%}
+
+ </div>
+</div>
+
+
+
+<div class="m-3">
+    <h2>Deals On Swimming</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider3">
+    {%for sw in swimming%}
+    <a href="{% url 'product-detail' sw.id %}" class="btn">
+<div class="item"><img src="{{sw.product_image.url}}" alt="" height="200px">
+<span class="fw-bold">{{sw.description}}</span><br>
+<span class="fs-5">Rs. {{sw.discounted_price}}</span></div></a>
+     {%endfor%}
+
+ </div>
+</div>
+
+
+
+<div class="m-3">
+    <h2>Deals On Volleyball</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider3">
+    {%for vb in volleyball%}
+    <a href="{% url 'product-detail' vb.id %}" class="btn">
+<div class="item"><img src="{{vb.product_image.url}}" alt="" height="200px">
+<span class="fw-bold">{{vb.description}}</span><br><span class="fs-5">Rs. {{vb.discounted_price}}</span></div></a>
+     {%endfor%}
+
+ </div>
+</div>
+
+<div class="m-3">
+    <h2>Deals On basketball</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider3">
+    {%for bb in basketball%}
+    <a href="{% url 'product-detail' bb.id %}" class="btn">
+<div class="item"><img src="{{bb.product_image.url}}" alt="" height="200px">
+<span class="fw-bold">{{bb.description}}</span><br>
+<span class="fs-5">Rs. {{bb.discounted_price}}</span></div></a>
+     {%endfor%}
+
+ </div>
+</div>
+
+
+
+<div class="m-3">
+    <h2>Deals On tabletennis</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider3">
+    {%for tt in tabletennis%}
+    <a href="{% url 'product-detail' tt.id %}" class="btn">
+<div class="item"><img src="{{tt.product_image.url}}" alt="" height="200px">
+<span class="fw-bold">{{tt.description}}</span><br>
+<span class="fs-5">Rs. {{tt.discounted_price}}</span></div></a>
+     {%endfor%}
+
+ </div>
+</div>
+
+
+
+<div class="m-3">
+    <h2>Deals On mobile</h2>
+    <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider3">
+    {%for m in mobile%}
+    <a href="{% url 'product-detail' m.id %}" class="btn">
+<div class="item"><img src="{{m.product_image.url}}" alt="" height="300px" width="100px">
+<span class="fw-bold">{{m.description}}</span><br>
+<span class="fs-5">Rs. {{m.discounted_price}}</span>
+</div></a>
+     {%endfor%}
+
+ </div>
+</div>
+
+
+
+
+{% endblock main-content %}
+

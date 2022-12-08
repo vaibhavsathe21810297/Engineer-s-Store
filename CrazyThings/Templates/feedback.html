@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Feedback{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+<h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+
+   <h3>Feedback</h3>
+   <hr>
+      {% if messages %}
+       {% for message in messages%}
+            <p {% if message.tags %}  class="alert alert-{{message.tags}}" {% endif %}>{{message}}</p>
+       {% endfor %}
+      {% endif %}
+ <form action="" method="post">
+      {% csrf_token%}
+       {% for fm in form%}
+       <div class="form-group">
+        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+       </div>
+
+      {% endfor %}
+      <div class="col-12 mt-3">
+       <button type="submit" class="btn btn-success mb-3">Submit</button>
+      </div>
+   </form>
+      
+      
+      
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
